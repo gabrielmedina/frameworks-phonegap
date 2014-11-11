@@ -10,21 +10,18 @@ function onDeviceReady() {
   destinationType = navigator.camera.DestinationType;
 }
 
-function onPhotoDataSuccess(imageData) {
-  var image = $('#image');
-  image.attr('src', 'data:image/jpeg;base64,' + imageData);
-}
-
 function onPhotoURISuccess(imageURI) {
   var image = $('#image');
   image.attr('src', imageURI);
 }
 
+
 function capturePhoto() {
   navigator.camera.getPicture(onPhotoURISuccess, onFail,
     {
-      quality: 50,
+      quality: 100,
       destinationType: Camera.DestinationType.FILE_URI,
+      correctOrientation: true,
       saveToPhotoAlbum: true
     }
   );
@@ -33,7 +30,7 @@ function capturePhoto() {
 function getPhoto(source) {
   navigator.camera.getPicture(onPhotoURISuccess, onFail,
     {
-      quality: 50,
+      quality: 100,
       destinationType: destinationType.FILE_URI,
       sourceType: source
     }
@@ -41,5 +38,5 @@ function getPhoto(source) {
 }
 
 function onFail(message) {
-  alert(message);
+  // onFail
 }
