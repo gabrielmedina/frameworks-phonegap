@@ -1,8 +1,14 @@
 // style
 
+@import "mixins";
+
+* {
+  @include box-sizing(border-box);
+}
+
 body {
   font-size: 10px;
-  background: #AE3A47;
+  background: #488477;
 
   // -webkit-animation: background 4s infinite;
 }
@@ -26,32 +32,55 @@ body {
 
 
 .btn-container {
-  text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+
+  padding: 20px;
+
+  background: rgba(0,0,0,.2);
 }
 
 .btn {
-  display: inline-block;
-  width: 70px;
-  height: 70px;
-  line-height: 70px;
+  display: block;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
 
   color: rgba(255,255,255,.8);
   font-size: 2.2em;
+  text-align: center;
 
   margin: 0 4px;
 
   background: rgba(255,255,255,.1);
   border-radius: 100%;
+
+  &:first-child {
+    float: left;
+  }
+
+  &:last-child {
+    float: right;
+  }
 }
 
 
 .page-figure {
   display: block;
-  margin: 30px 10px 20px;
+
+  margin: 30px 10px 130px;
+  padding: 6px;
+
+  border-radius: 6px;
+  background: rgba(255,255,255,.1);
 
   img {
     display: block;
     width: 100%;
+
     border-radius: 6px;
   }
 }
